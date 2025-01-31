@@ -4,6 +4,7 @@ providers = ["python", "node"]
 
 [phases.build]
 commands = [
+  "cd wwoof",
   "echo 'Building frontend...'",
 ]
 
