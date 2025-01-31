@@ -1,0 +1,15 @@
+version = 1
+providers = ["python", "node"]
+
+
+[phases.build]
+commands = [
+  "echo 'Building frontend...'",
+]
+
+[start]
+cmd = "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn blast.wsgi:application --bind 0.0.0.0:$PORT --workers 3"
+
+[variables]
+NIXPACKS_PYTHON_VERSION = "3.10"
+NODE_VERSION = "18.x"
