@@ -1,13 +1,9 @@
 version = 1
-providers = ["python"]
+providers = ["python", "django"]
 
 [phases.install]
 commands = ["pip install -r requirements.txt"]
 
-[phases.build]
-commands = [
-  "echo 'Building frontend...'",
-]
 
 [start]
 cmd = "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn wwoof-demo.wsgi:application --bind 0.0.0.0:$PORT --workers 3"
